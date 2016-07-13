@@ -117,7 +117,7 @@ b
 
 #GoogleVis interactive figure
 
-```{r, results='asis}
+```{r, results='asis'}
 
 # install.packages('googleVis')
 suppressPackageStartupMessages(library('googleVis'))
