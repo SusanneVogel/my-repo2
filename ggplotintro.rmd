@@ -4,9 +4,6 @@ author: "Susanne"
 date: "13 July 2016"
 output: html_document
 ---
-# YOU'VE BEEN HACKED BY YOUR COLLABORATOR!!!!
-# THINK AGAIN BEFORE SHARING YOUR STUFF TO STRANGERS!!
-
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -139,4 +136,6 @@ m = gvisMotionChart(
   colorvar='continent',
   sizevar='pop_m')
 plot(m)
+
+```
 
