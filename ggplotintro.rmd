@@ -1,0 +1,117 @@
+---
+title: "ggplotintro"
+author: "Susanne"
+date: "13 July 2016"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Plan
+
+We will load libraries and learn ggplot2.
+
+```{r Name your R chunk}
+#here we write R.
+
+#hastags mean comment.
+summary(cars)
+```
+
+## Load libraries
+```{r}
+#Loading my libraries.
+
+library(dplyr)
+library(gapminder)
+library(ggplot2) #instal.packages('ggplot2')
+
+## subset our data
+
+g <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(pop_m = pop/1e6)
+
+```
+
+# My first plot
+
+```{r}
+
+#ggplot needs (data, aes(whats x, whats y)) + what_kind_of_pot()
+s <- ggplot(g, aes(x = gdpPercap, y = lifeExp))+
+    geom_point()
+
+s
+```
+
+```{r}
+
+#ggplot needs (data, aes(whats x, whats y)) + what_kind_of_pot()
+s2 <- s + aes(size = pop_m)
+s2
+```
+
+```{r}
+
+#ggplot needs (data, aes(whats x, whats y)) + what_kind_of_pot()
+s3 <- s2 + aes(colour = continent)
+
+s3
+
+#check the cheat sheet if you want to look something up!
+```
+
+#nicely chained!
+
+```{r}
+
+s <- ggplot(g, aes(x = gdpPercap, y = lifeExp))+
+    geom_point() +
+    aes(size = pop_m) +
+    aes(color = continent) +
+    ggtitle('Health and Wealth of Nations for 2007') +
+    xlab('GDP per capita (USD/year)') +
+    ylab('Life expectency (years)') +
+    scale_colour_discrete('Continent') +
+    scale_size_continuous('Population mean')
+    
+
+s
+
+```
+
+## Make a boxplot
+
+This is my boxplot of continent and life expectancy, using the subset g of 2007.
+
+```{r}
+b <- ggplot(g, aes(x = continent, y = lifeExp))+
+    geom_boxplot() +
+    aes(fill = continent) +
+    ggtitle('Life expectancy per continent of 2007') +
+    xlab('Continent') +
+    ylab('Life expectency (years)') +
+    theme(legend.position = 'none')
+
+    
+b
+
+
+
+```
+
