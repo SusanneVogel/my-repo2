@@ -1,6 +1,9 @@
 # my-repo2
 my new repo for software carpentry: markdown 
 
+
+[Here is my ggplot intro](https://susannevogel.github.io/my-repo2/ggplotintro.html)
+
 # my-project
 
 Playing with [Software Carpentry at Oxford](http://jule32.github.io/2016-07-12-Oxford).
